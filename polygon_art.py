@@ -71,6 +71,7 @@ class Polygon:
             turtle.left(360 / self.num_sides)
         turtle.penup()
 
+    # Didnt use
     def move(self, x_offset, y_offset):
         self.location[0] += x_offset
         self.location[1] += y_offset
@@ -93,7 +94,6 @@ class EmbeddedPolygon(Polygon):
             
             # Recalculate the new location (move the turtle)
             turtle.penup()
-            turtle.goto(current_location[0], current_location[1])
             turtle.forward(self.size * (1 - self.reduction_ratio) / 2)
             turtle.left(90)
             turtle.forward(self.size * (1 - self.reduction_ratio) / 2)
