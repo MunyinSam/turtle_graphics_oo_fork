@@ -85,13 +85,13 @@ class EmbeddedPolygon(Polygon):
         current_size = self.size
         current_location = self.location[:]
 
-        while current_size > 10:
-            super().draw()  # Draw
+        for _ in range(2):  
+            super().draw()  # Draw the current polygon
             
-            # Adjust the size
+            # Adjust the size based on the reduction ratio
             current_size *= self.reduction_ratio
             
-            # Recalculate the new location
+            # Recalculate the new location (move the turtle)
             turtle.penup()
             turtle.goto(current_location[0], current_location[1])
             turtle.forward(self.size * (1 - self.reduction_ratio) / 2)
@@ -143,7 +143,6 @@ turtle.bgcolor('black')
 turtle.tracer(0)
 turtle.colormode(255)
 
-# Create and run PolygonArt with a desired number of polygons
 user_input = int(input("Which art do you want to generate? Enter a number between 1 to 9 inclusive: "))
 
 NUM_POLYGONS = 15
